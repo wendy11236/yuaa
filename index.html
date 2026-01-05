@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 优化视口设置，禁止缩放，适配移动端 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- SEO优化：添加描述和关键词 -->
+    <meta name="description" content="次元宇宙 - 专注二次元文化的主题站，提供热门动漫推荐、人气角色排行、二次元文化科普等内容，是ACG爱好者的专属阵地">
+    <meta name="keywords" content="二次元,动漫,ACG,鬼灭之刃,进击的巨人,原神,人气角色,二次元文化">
+    
+    <!-- 修正：引入Font Awesome官方CDN（原错误指向本地图片） -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- 网站图标（favicon） -->
+    <link rel="icon" href="images\微信图片_20251211155251_192_151.jpg" type="image/png">
+    <link rel="apple-touch-icon" href="./images/apple-icon.png">
+    
+    <!-- 预加载关键图片 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="images\微信图片_20251211155251_192_151.jpg" as="image">
+    <link rel="preload" href="images\微信图片_20251211155251_192_151.jpg" as="image">
+    
+    <!-- 引入外部CSS文件（核心：所有样式已抽离到这里） -->
+    <link rel="stylesheet" href="style.css">
+    
+    <title>次元宇宙 - 二次元主题站</title>
+</head>
+<body>
+    <!-- 加载动画容器 -->
+    <div class="page-loader"></div>
+    <div class="loader" id="loader" aria-label="页面加载中">
+        <div class="spinner" aria-hidden="true"></div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" aria-label="主导航">
+        <div class="container">
+            <div class="logo">
+                <h1>次元宇宙 <span class="logo-sub">ACG WORLD</span></h1>
+            </div>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#home" class="active" role="menuitem" aria-current="page">首页</a></li>
+                <li role="none"><a href="#anime" role="menuitem">动漫推荐</a></li>
+                <li role="none"><a href="#character" role="menuitem">人气角色</a></li>
+                <li role="none"><a href="#culture" role="menuitem">二次元文化</a></li>
+            </ul>
+            <!-- 暗色模式切换按钮 -->
+            <button class="mode-toggle" id="modeToggle" aria-label="切换暗色模式">
+                <i class="fa fa-moon-o" aria-hidden="true"></i>
+                <span>暗色模式</span>
+            </button>
+            <!-- 移动端菜单按钮 -->
+            <div class="menu-btn" aria-label="打开移动端菜单" aria-expanded="false">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区 -->
+    <section id="home" class="hero">
+        <div class="hero-overlay">
+            <div class="container">
+                <div class="hero-content fade-in">
+                    <h2>欢迎来到<span>二次元</span>的奇妙世界</h2>
+                    <p>在这里，与热爱动漫、游戏、漫画的同好一起，探索无限可能</p>
+                    <a href="#anime" class="btn" aria-label="前往动漫推荐板块">开始探索</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 动漫推荐区 -->
+    <section id="anime" class="anime-section" aria-labelledby="anime-title">
+        <div class="container">
+            <h2 class="section-title fade-in" id="anime-title">热门动漫推荐 <i class="fa fa-film" aria-hidden="true"></i></h2>
+            <div class="anime-list">
+                <!-- 进击的巨人 -->
+                <div class="anime-card fade-in" data-anime-id="1" tabindex="0" role="button" aria-label="查看进击的巨人详情">
+                    <img 
+                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==" 
+                        data-src="images/微信图片_20251120195346_91_151.jpg"
+                        alt="进击的巨人封面 - 艾伦·耶格尔与调查兵团的冒险" 
+                        class="anime-img lazy-load"
+                        loading="lazy"
+                    >
+                    <div class="anime-info">
+                        <h3>进击的巨人</h3>
+                        <p>类型：热血 / 科幻</p>
+                        <p>评分：9.8</p>
+                    </div>
+                </div>
+                <!-- 鬼灭之刃 -->
+                <div class="anime-card fade-in" data-anime-id="2" tabindex="0" role="button" aria-label="查看鬼灭之刃详情">
+                    <img 
+                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==" 
+                        data-src="images/微信图片_20251120195349_92_151.jpg"
+                        alt="鬼灭之刃封面 - 灶门炭治郎与祢豆子的冒险" 
+                        class="anime-img lazy-load"
+                        loading="lazy"
+                    >
+                    <div class="anime-info">
+                        <h3>鬼灭之刃</h3>
+                        <p>类型：战斗 / 奇幻</p>
+                        <p>评分：9.7</p>
+                    </div>
+                </div>
+                <!-- 原神动画版 -->
+                <div class="anime-card fade-in" data-anime-id="3" tabindex="0" role="button" aria-label="查看原神动画版详情">
+                    <img 
+                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==" 
+                        data-src="images\微信图片_20251214185945_196_151.jpg"
+                        alt="原神动画版封面 - 提瓦特大陆的冒险" 
+                        class="anime-img lazy-load"
+                        loading="lazy"
+                    >
+                    <div class="anime-info">
+                        <h3>原神·动画版</h3>
+                        <p>类型：冒险 / 奇幻</p>
+                        <p>评分：9.6</p>
+                    </div>
+                </div>
+                <!-- 排球少年 -->
+                <div class="anime-card fade-in" data-anime-id="4" tabindex="0" role="button" aria-label="查看排球少年详情">
+                    <img 
+                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==" 
+                        data-src="images\微信图片_20251211155254_193_151.jpg"
+                        alt="排球少年封面 - 日向翔阳与乌野高中排球队的故事" 
+                        class="anime-img lazy-load"
+                        loading="lazy"
+                    >
+                    <div class="anime-info">
+                        <h3>排球少年！！</h3>
+                        <p>类型：运动 / 热血</p>
+                        <p>评分：9.9</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 人气角色区 -->
+    <section id="character" class="character-section" aria-labelledby="character-title">
+        <div class="container">
+            <h2 class="section-title fade-in" id="character-title">人气角色TOP <i class="fa fa-star" aria-hidden="true"></i></h2>
+            <div class="character-list">
+                <!-- 利威尔·阿克曼 -->
+                <div class="character-card fade-in" data-character-id="1">
+                    <img 
+                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==" 
+                        data-src="images\微信图片_20251120195357_97_151.jpg"
+                        alt="利威尔·阿克曼 - 进击的巨人人气角色" 
+                        class="character-img lazy-load"
+                        loading="lazy"
+                    >
+                    <h3>利威尔·阿克曼</h3>
+                    <p>出自《进击的巨人》</p>
+                    <button class="vote-btn" aria-label="为利威尔·阿克曼投票">
+                        <i class="fa fa-heart" aria-hidden="true"></i> 为他投票
+                        <span class="vote-count">0</span>
+                    </button>
+                </div>
+                <!-- 灶门炭治郎 -->
+                <div class="character-card fade-in" data-character-id="2">
+                    <img 
+                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==" 
+                        data-src="images\微信图片_20251120195358_98_151.jpg"
+                        alt="灶门炭治郎 - 鬼灭之刃主角" 
+                        class="character-img lazy-load"
+                        loading="lazy"
+                    >
+                    <h3>灶门炭治郎</h3>
+                    <p>出自《鬼灭之刃》</p>
+                    <button class="vote-btn" aria-label="为灶门炭治郎投票">
+                        <i class="fa fa-heart" aria-hidden="true"></i> 为他投票
+                        <span class="vote-count">0</span>
+                    </button>
+                </div>
+                <!-- 雷电将军 -->
+                <div class="character-card fade-in" data-character-id="3">
+                    <img 
+                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==" 
+                        data-src="images\微信图片_20251214193516_197_151.jpg"
+                        alt="雷电将军 - 原神稻妻角色" 
+                        class="character-img lazy-load"
+                        loading="lazy"
+                    >
+                    <h3>雷电将军</h3>
+                    <p>出自《原神》</p>
+                    <button class="vote-btn" aria-label="为雷电将军投票">
+                        <i class="fa fa-heart" aria-hidden="true"></i> 为她投票
+                        <span class="vote-count">0</span>
+                    </button>
+                </div>
+                <!-- 日向翔阳 -->
+                <div class="character-card fade-in" data-character-id="4">
+                    <img 
+                        src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==" 
+                        data-src="images\微信图片_20251211155256_194_151.jpg"
+                        alt="日向翔阳 - 排球少年！！主角" 
+                        class="character-img lazy-load"
+                        loading="lazy"
+                    >
+                    <h3>日向翔阳</h3>
+                    <p>出自《排球少年！！》</p>
+                    <button class="vote-btn" aria-label="为日向翔阳投票">
+                        <i class="fa fa-heart" aria-hidden="true"></i> 为他投票
+                        <span class="vote-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 二次元文化区 -->
+    <section id="culture" class="culture-section" aria-labelledby="culture-title">
+        <div class="container">
+            <h2 class="section-title fade-in" id="culture-title">二次元文化科普 <i class="fa fa-book" aria-hidden="true"></i></h2>
+            <div class="culture-scroll" aria-label="二次元文化分类">
+                <div class="culture-content">
+                    <div class="culture-item fade-in" tabindex="0">
+                        <i class="fa fa-comic-book culture-icon" aria-hidden="true"></i>
+                        <h3>ACG 定义</h3>
+                        <p>即 Animation（动画）、Comic（漫画）、Game（游戏）的缩写，是二次元文化的核心载体，涵盖了相关的衍生作品和周边产品。</p>
+                    </div>
+                    <div class="culture-item fade-in" tabindex="0">
+                        <i class="fa fa-paint-brush culture-icon" aria-hidden="true"></i>
+                        <h3>同人创作</h3>
+                        <p>基于原有IP进行的二次创作，包括同人漫画、小说、插画、手书等，是粉丝表达热爱的重要方式，形成了活跃的创作生态。</p>
+                    </div>
+                    <div class="culture-item fade-in" tabindex="0">
+                        <i class="fa fa-users culture-icon" aria-hidden="true"></i>
+                        <h3>漫展文化</h3>
+                        <p>二次元爱好者的线下聚会，包含Cosplay展示、声优见面会、周边售卖等活动，是连接线上兴趣与线下社交的重要平台。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer" aria-label="页脚信息">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>次元宇宙</h2>
+                    <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>你最喜欢的动漫</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <h1></h1>你最喜欢的动漫</h1>
+    <p class="sub"></p>
+
+    <div class="row">
+      <input id="todoInput" type="text" placeholder="输入你最喜欢的动漫" />
+      <button id="addBtn">添加</button>
+    </div>
+
+    <ul id="list" class="list"></ul>
+
+    <div class="foot">
+      <span id="count">0</span> 个动漫
+      <button id="clearBtn" class="danger">清空</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+                </div>
+                <div class="footer-links">
+                    <h3>快速链接</h3>
+                    <ul role="navigation">
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#anime">动漫推荐</a></li>
+                        <li><a href="#character">人气角色</a></li>
+                        <li><a href="#culture">文化科普</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>关注我们</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="微博" target="_blank" rel="noopener noreferrer"><i class="fa fa-weibo" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="微信" target="_blank" rel="noopener noreferrer"><i class="fa fa-wechat" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="推特" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <small>© 2025 次元宇宙 版权所有 | 二次元爱好者的专属阵地</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部" hidden>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- 动漫详情弹窗（移出原错误嵌套位置，放在角色区外） -->
+    <div id="anime-detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="detail-wrapper">
+                <div class="detail-img-container">
+                    <img id="detail-img" src="" alt="动漫详情图" class="detail-img">
+                </div>
+                <div class="detail-text">
+                    <h2 id="detail-title"></h2>
+                    <p><strong>类型：</strong><span id="detail-type"></span></p>
+                    <p><strong>评分：</strong><span id="detail-score"></span></p>
+                    <p><strong>集数：</strong><span id="detail-episodes"></span></p>
+                    <p><strong>播出时间：</strong><span id="detail-release"></span></p>
+                    <p><strong>导演：</strong><span id="detail-director"></span></p>
+                    <p><strong>制作公司：</strong><span id="detail-studio"></span></p>
+                    <p class="intro"><strong>剧情简介：</strong><span id="detail-intro"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 动漫评论模态框 -->
+    <div class="modal" id="animeModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal" aria-label="关闭详情弹窗">&times;</span>
+            <div class="anime-detail" id="animeDetailContent" aria-labelledby="modal-title">
+                <!-- 动态填充动漫详情内容 -->
+            </div>
+            <div class="comment-section" id="commentSection">
+                <h3 class="comment-title" id="modal-title">评论区 <i class="fa fa-comments" aria-hidden="true"></i></h3>
+                <div class="comment-input-container">
+                    <textarea 
+                        class="comment-input" 
+                        id="commentInput" 
+                        placeholder="写下你的看法...（不少于5个字）"
+                        rows="3"
+                        aria-label="输入评论内容"
+                        maxlength="500"
+                    ></textarea>
+                    <button class="comment-submit-btn" id="commentSubmitBtn" aria-label="提交评论">提交评论</button>
+                </div>
+                <div class="comment-list" id="commentList" aria-live="polite">
+                    <!-- 动态填充评论 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页面加载完成脚本 -->
+    <script>
+        window.addEventListener('load', function() {
+            document.querySelector('.page-loader').classList.add('hidden');
+            document.body.classList.add('loaded');
+            document.getElementById('loader').classList.add('hidden');
+        });
+    </script>
+    <!-- 引入外部JS文件 -->
+    <script src="script.js"></script>
+</body>
+</html>

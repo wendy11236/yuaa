@@ -1,0 +1,1211 @@
+/* ===================== 1. 全局变量定义（唯一一份，统一主题） ===================== */
+:root {
+    /* 核心主题色 */
+    --primary-color: #ff6b8b;    /* 二次元粉色 */
+    --bg-color: #ffffff;         /* 页面背景 */
+    --card-bg: #f9f9f9;          /* 卡片背景 */
+    --text-color: #333333;       /* 文字主色 */
+    --border-color: #eee;        /* 边框色 */
+    --overlay-color: rgba(0, 0, 0, 0.5); /* 英雄区遮罩 */
+}
+
+/* 暗黑模式变量（优化配色：更深的背景+更柔和的文字/强调色） */
+.dark-mode {
+    --primary-color: #ff85a1; /* 粉色更柔和，避免刺眼 */
+    --bg-color: #12121c;      /* 全局背景：深灰蓝，比之前更柔和 */
+    --card-bg: #1e1e2f;       /* 卡片背景：比全局背景浅一级，区分层次 */
+    --text-color: #f0f0f5;    /* 文字主色：浅灰白，提升可读性 */
+    --border-color: #2d2d44;  /* 边框色：比卡片背景深，增加区分度 */
+    --overlay-color: rgba(0, 0, 0, 0.75); /* 英雄区遮罩：更深，突出文字 */
+}
+/* ========== 1. 导航栏 暗色优化 ========== */
+.dark-mode .navbar {
+    background-color: rgba(18, 18, 28, 0.95); /* 与全局背景一致 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); /* 阴影更深，增加层次 */
+}
+.dark-mode .navbar.scroll {
+    background-color: rgba(18, 18, 28, 0.98);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ========== 2. 英雄区 暗色优化 ========== */
+.dark-mode .hero-overlay {
+    background-color: var(--overlay-color); /* 用变量，确保遮罩更深 */
+}
+.dark-mode .hero-content h2,
+.dark-mode .hero-content p {
+    color: #fff; /* 强制白色，避免和背景融合 */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* 增加文字阴影，提升可读性 */
+}
+
+
+/* ========== 3. 动漫区 暗色优化 ========== */
+.dark-mode .anime-section {
+    background-color: var(--bg-color); /* 与全局背景统一 */
+}
+.dark-mode .anime-card {
+    background-color: var(--card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 阴影更深 */
+}
+.dark-mode .anime-card:hover {
+    box-shadow: 0 10px 20px rgba(255, 133, 161, 0.2); /* 强调色阴影，增加互动感 */
+}
+.dark-mode .anime-info h3 {
+    color: var(--primary-color); /* 确保标题是强调色 */
+}
+.dark-mode .anime-info p {
+    color: #d0d0d5; /* 文字稍浅，区分标题 */
+}
+
+
+/* ========== 4. 角色区 暗色优化 ========== */
+.dark-mode .character-section {
+    background-color: var(--bg-color);
+}
+.dark-mode .character-card {
+    background-color: var(--card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.dark-mode .character-card:hover {
+    box-shadow: 0 10px 20px rgba(255, 133, 161, 0.2);
+}
+.dark-mode .character-card h3 {
+    color: var(--primary-color);
+}
+.dark-mode .character-card p {
+    color: #d0d0d5;
+}
+
+
+/* ========== 5. 文化区 暗色优化 ========== */
+.dark-mode .culture-section {
+    background-color: var(--bg-color);
+}
+.dark-mode .culture-item {
+    background-color: var(--card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.dark-mode .culture-item:hover {
+    box-shadow: 0 10px 20px rgba(255, 133, 161, 0.2);
+}
+.dark-mode .culture-item h3 {
+    color: var(--primary-color);
+}
+.dark-mode .culture-item p {
+    color: #d0d0d5;
+}
+
+
+/* ========== 6. 弹窗/评论区 暗色优化 ========== */
+.dark-mode .modal {
+    background: rgba(0, 0, 0, 0.9); /* 弹窗背景更深，突出内容 */
+}
+.dark-mode .modal-content {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+.dark-mode .detail-text h2,
+.dark-mode .anime-detail-info h2 {
+    color: var(--primary-color);
+}
+.dark-mode .detail-text p,
+.dark-mode .anime-detail-info p {
+    color: #d0d0d5;
+}
+.dark-mode .comment-item {
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+.dark-mode .comment-meta {
+    color: #a0a0a5;
+}
+.dark-mode .comment-empty {
+    color: #a0a0a5;
+}
+
+
+/* ========== 7. 页脚 暗色优化 ========== */
+.dark-mode .footer {
+    background-color: #0d0d14; /* 比全局背景更深，区分页脚 */
+}
+.dark-mode .footer-links a {
+    color: #d0d0d5;
+}
+.dark-mode .footer-links a:hover {
+    color: var(--primary-color);
+}
+/* ===================== 2. 全局基础样式（仅一份，去重） ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei", sans-serif;
+    transition: all 0.3s ease; /* 全局过渡，统一动画节奏 */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+ul {
+    list-style: none;
+}
+
+/* 通用按钮样式 */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #ff4a8c;
+    transform: translateY(-3px);
+}
+
+/* 通用标题样式 */
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 28px;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+/* ===================== 3. 加载动画 ===================== */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--border-color);
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ===================== 4. 导航栏样式 ===================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.dark-mode .navbar {
+    background-color: rgba(26, 26, 46, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar.scroll {
+    padding: 8px 0;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.dark-mode .navbar.scroll {
+    background-color: rgba(26, 26, 46, 0.98);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+}
+
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+
+.logo h1 {
+    font-size: 24px;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.logo-sub {
+    font-size: 14px;
+    color: var(--text-color);
+    margin-left: 8px;
+    font-weight: normal;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-menu a.active {
+    color: var(--primary-color);
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a.active::after {
+    width: 100%;
+}
+
+.mode-toggle {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+}
+
+.mode-toggle:hover {
+    background-color: #ff4a8c;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+/* ===================== 5. 英雄区样式 ===================== */
+.hero {
+    position: relative;
+    height: 500px;
+    background: url("images/微信图片_20251211155251_192_151.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color);
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    padding: 0 20px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.hero-content h2 span {
+    color: var(--primary-color);
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.hero-content .btn:hover {
+    transform: scale(1.05);
+}
+
+
+/* ===================== 6. 动漫推荐区样式 ===================== */
+.anime-section {
+    padding: 100px 0;
+    background: #f9f9f9;
+    /* 新增：限制最大宽度 + 水平居中，让整个区域在网页中间 */
+    max-width: 1200px; 
+    margin: 0 auto;
+    /* 可选：左右内边距，避免移动端贴边 */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.anime-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center; /* 保留：卡片列表水平居中 */
+    margin-top: 40px;
+    /* 新增：移除默认margin，确保完全居中 */
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
+
+.anime-card {
+    /* 修改：替换50%宽度为固定宽度（匹配图片380px），保证卡片与图片对齐 */
+    width: 380px;
+    /* 移除calc(50% - 15px)，避免宽度适配问题 */
+    /* width: calc(50% - 15px); */
+    box-sizing: border-box;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    position: relative;
+    /* 新增：确保卡片自身水平居中（兜底） */
+    margin: 0 auto;
+}
+
+.dark-mode .anime-card {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.anime-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(255, 107, 139, 0.15);
+}
+
+.dark-mode .anime-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.anime-card:hover .anime-img {
+    filter: brightness(1.05);
+}
+
+.anime-img {
+    /* 优化：移除!important，避免样式冲突，卡片宽度已匹配图片宽度 */
+    width: 100%;
+    height: 507px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    display: block;
+}
+
+.anime-info {
+    padding: 20px;
+    text-align: center; /* 保留：文字居中 */
+}
+
+.anime-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.anime-info p {
+    margin-bottom: 5px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* 新增：移动端适配，小屏幕下卡片宽度自适应 */
+@media (max-width: 768px) {
+    .anime-card {
+        width: 100%;
+        max-width: 380px; /* 最大宽度仍匹配图片，避免变形 */
+    }
+    .anime-img {
+        height: 400px; /* 移动端图片高度适配 */
+    }
+    .anime-section {
+        padding: 60px 0;
+    }
+}
+
+/* ===================== 7. 人气角色区样式 ===================== */
+.character-section {
+    padding: 100px 0;
+    background-color: var(--card-bg);
+}
+
+.dark-mode .character-section {
+    background-color: #2a2a42;
+}
+
+.character-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.character-card {
+    background-color: var(--bg-color);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+}
+
+.dark-mode .character-card {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.character-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 20px rgba(255, 107, 139, 0.15);
+}
+
+.dark-mode .character-card:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.character-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid var(--primary-color);
+}
+
+.character-card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.character-card p {
+    font-size: 14px;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.vote-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.vote-btn:hover {
+    background-color: #ff4a8c;
+    transform: scale(1.05);
+}
+
+.vote-btn.voted {
+    transform: scale(0.95);
+    background-color: #4ed94c;
+}
+
+.vote-count {
+    margin-left: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+/* ===================== 8. 二次元文化区样式 ===================== */
+.culture-section {
+    padding: 100px 0;
+}
+
+.culture-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.culture-item {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.dark-mode .culture-item {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.culture-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.dark-mode .culture-item:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.culture-icon {
+    font-size: 48px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.culture-item h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.culture-item p {
+    font-size: 14px;
+    opacity: 0.8;
+    line-height: 1.7;
+}
+
+/* ===================== 9. 页脚样式 ===================== */
+.footer {
+    background-color: #292929;
+    color: white;
+    padding: 80px 0 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-logo h2 {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.footer-logo p {
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+.footer-links h3,
+.footer-social h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-links h3::after,
+.footer-social h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #444;
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* ===================== 10. 回到顶部按钮 ===================== */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: #ff4a8c;
+    transform: scale(1.1);
+}
+
+/* ===================== 11. 动漫详情弹窗样式 ===================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    overflow: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 80vh;
+    overflow-y: auto;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.modal.active .modal-content {
+    transform: translateY(0);
+}
+
+.close-btn, .close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: var(--text-color);
+}
+
+.close-btn:hover, .close-modal:hover {
+    color: var(--primary-color);
+}
+
+/* 弹窗详情布局 */
+.detail-wrapper, .anime-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.detail-img-container {
+    flex: 1;
+    min-width: 300px;
+}
+
+.detail-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    max-height: 600px;
+}
+
+.anime-detail-img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid var(--primary-color);
+    flex-shrink: 0;
+}
+
+.detail-text, .anime-detail-info {
+    flex: 2;
+    min-width: 300px;
+}
+
+.detail-text h2, .anime-detail-info h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    font-size: 28px;
+}
+
+.detail-text p {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.anime-detail-info p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.detail-text .intro {
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+/* ===================== 12. 评论区样式 ===================== */
+.comment-section {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.comment-title {
+    font-size: 20px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comment-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 14px;
+    resize: vertical;
+}
+
+.comment-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.comment-submit-btn {
+    align-self: flex-end;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.comment-submit-btn:hover {
+    background-color: #ff4a8c;
+    transform: translateY(-2px);
+}
+
+.comment-submit-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* 评论列表 */
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.comment-item {
+    background-color: var(--card-bg);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .comment-item {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.comment-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #999;
+}
+
+.dark-mode .comment-meta {
+    color: #bbb;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.comment-content {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* 空评论提示 */
+.comment-empty {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+    font-size: 14px;
+}
+
+.dark-mode .comment-empty {
+    color: #bbb;
+}
+
+/* ===================== 13. 动画与响应式适配 ===================== */
+/* 渐入动画 */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 响应式适配（合并所有断点，去重） */
+@media (max-width: 992px) {
+    .hero-content h2 {
+        font-size: 38px;
+    }
+    .anime-detail {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* 通用适配 */
+    .hero {
+        height: 400px;
+    }
+    .hero-content h2 {
+        font-size: 32px;
+    }
+    .hero-content p {
+        font-size: 16px;
+    }
+    .section-title {
+        font-size: 24px;
+    }
+    .anime-section,
+    .character-section,
+    .culture-section {
+        padding: 60px 0;
+    }
+
+    /* 导航适配 */
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background-color: var(--bg-color);
+        width: 100%;
+        height: calc(100vh - 70px);
+        padding: 30px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    .dark-mode .nav-menu {
+        background-color: var(--card-bg);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    .nav-menu.active {
+        left: 0;
+    }
+    .menu-btn {
+        display: block;
+    }
+    .mode-toggle {
+        margin-left: auto;
+        margin-right: 20px;
+    }
+
+    /* 动漫卡片适配 */
+    .anime-card {
+        width: 100% !important;
+    }
+    .anime-img {
+        width: 300px !important;
+        height: 400px !important;
+        margin: 0 auto;
+    }
+
+    /* 角色卡片适配 */
+    .character-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* 悬停效果弱化 */
+    .anime-card:hover, .character-card:hover {
+        transform: translateY(-4px) scale(1.01);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+@media (max-width: 576px) {
+    .logo h1 {
+        font-size: 20px;
+    }
+    .hero-content h2 {
+        font-size: 28px;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    .anime-list,
+    .character-list,
+    .culture-content,
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    .modal-content {
+        padding: 20px;
+        max-height: 70vh;
+    }
+    .anime-detail-img {
+        width: 150px;
+        height: 225px;
+    }
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #1d4ba9;
+}
+
+.app {
+  width: min(520px, calc(100% - 32px));
+  margin: 60px auto;
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+
+h1 {
+  margin: 0 0 6px;
+  text-align: center;
+}
+
+.sub {
+  margin: 0 0 14px;
+  text-align: center;
+  color: #667;
+  font-size: 14px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+#todoInput {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #ccd;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+#addBtn {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  background: #3b82f6;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#addBtn:hover { filter: brightness(0.95); }
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border: 1px solid #eef;
+  border-radius: 12px;
+  background: #fafbff;
+}
+
+.task {
+  flex: 1;
+  font-size: 14px;
+  color: #223;
+  word-break: break-word;
+}
+
+.small {
+  font-size: 12px;
+  color: #889;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  color: #556;
+  font-size: 14px;
+}
+
+.danger {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  background: #ef4444;
+  color: white;
+}
+
+.danger:hover { filter: brightness(0.95); }
+
+
+  
+}
